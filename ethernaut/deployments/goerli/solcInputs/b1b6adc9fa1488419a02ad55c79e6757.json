@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/Ethernaut06.sol": {
+      "content": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.17;\n\ncontract Ethernaut06 {\n    constructor() {}\n\n    function hack(address _address) public {\n        (bool success, bytes memory data) = _address.call(\n            abi.encodeWithSignature(\"doesNotExist()\")\n        );\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
